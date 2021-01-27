@@ -23,4 +23,7 @@ class Background {
         this.backgroundPos.x -= this.backgroundSpeed
 
     }
+    stopBackground() {
+        this.backgroundSpeed = 0
+    }
 }
