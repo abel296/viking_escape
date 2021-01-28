@@ -19,7 +19,5 @@ class Ship {
         if (this.shipPos.x <= this.canvasSize.w - 320) {
             this.speed = 0
         }
-
-
     }
 }

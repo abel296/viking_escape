@@ -4,13 +4,10 @@ class Background {
         this.backgroundPos = { x: posX, y: posY }
         this.backgroundSize = { w: width, h: height }
         this.backgroundSpeed = 1
-
-
         this.imageName = `background.jpg`
         this.imageBackground = new Image()
         this.imageBackground.src = `images/${this.imageName}`
     }
-
     draw() {
         this.move()
         this.ctx.drawImage(this.imageBackground, this.backgroundPos.x, this.backgroundPos.y, this.backgroundSize.w, this.backgroundSize.h)
@@ -21,7 +18,6 @@ class Background {
             this.backgroundPos.x = 0
         }
         this.backgroundPos.x -= this.backgroundSpeed
-
     }
     stopBackground() {
         this.backgroundSpeed = 0

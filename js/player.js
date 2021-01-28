@@ -24,18 +24,17 @@ class Player {
     jump() {
         this.posY -= 70
         this.velY -= 8
-
-
     }
     fall() {
         if (this.posY < this.floor) {
             this.posY += this.velY
             this.velY += this.gravity
-
-
         } else {
             this.posY = this.floor
             this.velY = 1
         }
+    }
+    die() {
+        this.posY += 2
     }
 }

@@ -11,10 +11,8 @@ class Obstacles {
     }
     draw() {
         this.ctx.drawImage(this.obstacleInstance, this.obstaclePos.x, this.obstaclePos.y, this.obstacleSize.w, this.obstacleSize.h)
-
     }
     move() {
         this.obstaclePos.x -= this.speed
     }
-
 }
