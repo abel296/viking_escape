@@ -9,7 +9,7 @@ class Player {
         this.floor = this.posY
         this.velY = 1
         this.velX = 5
-        this.gravity = 0.1
+        this.gravity = 0.4
         this.gravitySpeed = 0
         this.imageName = `walk1.png`
         this.playerInstance = new Image()
@@ -22,8 +22,9 @@ class Player {
         this.posX += distance
     }
     jump() {
-        this.posY -= 80
-        this.velY -= 5
+        this.posY -= 70
+        this.velY -= 8
+
 
     }
     fall() {

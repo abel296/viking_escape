@@ -25,7 +25,6 @@ const game = {
     score: 0,
 
 
-
     init() {
         this.canvasDOM = document.getElementById(`canvas`)
         this.ctx = this.canvasDOM.getContext(`2d`)
@@ -49,8 +48,7 @@ const game = {
         this.createBackground()
         this.createPlayer()
         this.createShip()
-
-        setInterval(() => {
+        this.interval = setInterval(() => {
             this.drawAll()
             this.moveAll()
             this.clearObstacle()
@@ -58,16 +56,17 @@ const game = {
 
 
             this.frames++
-                this.frames % 200 === 0 ? this.createObstacle() : null
-            this.frames % 100 === 0 ? this.createPlatform() : null
+                this.frames % 250 === 0 ? this.createObstacle() : null
+            this.frames % 63 === 0 ? this.createPlatform() : null
             this.stopGame()
-                // this.shipVikings.move()
 
-            this.isCollision()
+            this.isCollision() ? this.gameOver() : null
+            this.isPlayerOut() ? this.gameOver() : null
             this.isPlatform()
-                // this.win()
+            this.onPlatform()
+            this.win()
 
-        }, 1000 / 60)
+        }, 1400 / 60)
 
     },
 
@@ -123,7 +122,7 @@ const game = {
 
 
     createObstacle() {
-        const obstacle1 = new Obstacles(this.ctx, this.canvasSize, this.canvasSize.w, this.canvasSize.h - 130, 80, 80)
+        const obstacle1 = new Obstacles(this.ctx, this.canvasSize, this.canvasSize.w, this.canvasSize.h - 110, 60, 60)
         if (this.score < 5) {
             this.obstacles.push(obstacle1)
         }
@@ -137,10 +136,12 @@ const game = {
     isCollision() {
         this.obstacles.forEach(obs => {
 
-            if (this.player.posX + this.player.width - 130 >= obs.obstaclePos.x &&
+            if (this.player.posX + this.player.width - 170 >= obs.obstaclePos.x &&
                 this.player.posY + this.player.height >= obs.obstaclePos.y &&
                 this.player.posX <= obs.obstaclePos.x + obs.obstacleSize.w) {
                 // alert(`game`);
+                swal("GAME OVER", "Your ship is gone", "warning")
+
             }
         });
     },
@@ -165,16 +166,28 @@ const game = {
 
         }
 
-        // this.score += num
-        // this.score = this.platforms.filter(plat => plat.platformPos.x < 0)
+    },
+    win() {
+        if (this.player.posX + this.player.width - 200 >= this.shipVikings.shipPos.x &&
+            this.player.posY + this.player.height >= this.shipVikings.shipPos.y &&
+            this.player.posX <= this.shipVikings.shipPos.x + this.shipVikings.shipSize.w)
+            swal({
+                title: "YOU WIN",
+                text: "¡¡YOU ARE A WARRIOR!!",
+                icon: "success",
+            })
+    },
+    isPlayerOut() {
+        console.log(this.player.posX)
+        if (this.player.posX < 0 - this.player.width) {
+            swal("GAME OVER", "Too slow!", "warning")
+            return true
 
-        // },
-        // win() {
 
-        //     if (this.score.length >= 2) {
-        //       
-        //         this.backgroundSpeed = 0
-        //     }
+        } else {
+            return false
+        }
+
     },
 
 
@@ -188,10 +201,10 @@ const game = {
         this.platforms.forEach(plat => {
 
             if (this.player.posX + this.player.width - 160 >= plat.platformPos.x &&
-                this.player.posY + this.player.height >= plat.platformPos.y &&
-                this.player.posX <= plat.platformPos.x + plat.platformSize.w) {
+                this.player.posY + this.player.height - 50 >= plat.platformPos.y &&
+                this.player.posX + 50 <= plat.platformPos.x + plat.platformSize.w - 50) {
 
-                this.player.posX -= 5
+                this.player.posX -= 10
                 return true
             } else {
                 return false
@@ -199,9 +212,27 @@ const game = {
         })
 
     },
+    onPlatform() {
+        this.platforms.forEach(plat => {
+
+            if (this.player.posX + this.player.width - 160 >= plat.platformPos.x &&
+                this.player.posX + 50 <= plat.platformPos.x + plat.platformSize.w - 50) {
+
+                this.player.posY = this.canvasSize.h - plat.platformSize.h - this.player.height - 10
+                return true
+            } else {
+                return false
+            }
+        })
+
+
+    },
     createShip() {
         this.shipVikings = new Ship(this.ctx, this.canvasSize, this.canvasSize.w + 400, this.canvasSize.h - 400, 400, 400)
 
+    },
+    gameOver() {
+        clearInterval(this.interval)
     }
 
 

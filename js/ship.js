@@ -1,5 +1,5 @@
 class Ship {
-    constructor(ctx, canvasSize, posX, posY, width, height, speed) {
+    constructor(ctx, canvasSize, posX, posY, width, height) {
         this.ctx = ctx
         this.canvasSize = canvasSize
         this.shipPos = { x: posX, y: posY }
