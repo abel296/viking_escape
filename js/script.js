@@ -1,5 +1,5 @@
 window.onload = () => {
-    document.onclick = () => {
+    document.getElementById("start-button").onclick = () => {
         document.getElementById("auto").style.display = "none"
         const sound = document.getElementById("audio")
         sound.play()

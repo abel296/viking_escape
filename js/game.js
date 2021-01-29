@@ -88,7 +88,7 @@ const game = {
     },
 
     setEventListeners() {
-        document.onkeyup = e => {
+        document.onkeydown = e => {
             if (this.isPlatform() && e.key === this.keys.right) {
                 this.player.move(0)
             } else if (e.key === this.keys.right) {
