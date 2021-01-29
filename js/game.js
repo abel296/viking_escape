@@ -77,7 +77,7 @@ const game = {
         this.player.fall()
         this.obstacles.forEach(obs => obs.draw())
         this.platforms.forEach(plat => plat.draw())
-        this.score >= 10 && this.shipVikings.draw()
+        this.score >= 15 && this.shipVikings.draw()
     },
 
     moveAll() {
@@ -113,16 +113,16 @@ const game = {
 
     isCollision() {
         this.obstacles.forEach(obs => {
-            if (this.player.posX + this.player.width - 170 >= obs.obstaclePos.x &&
+            if (this.player.posX + this.player.width - 180 >= obs.obstaclePos.x &&
                 this.player.posY + this.player.height - 60 >= obs.obstaclePos.y &&
-                this.player.posX <= obs.obstaclePos.x + obs.obstacleSize.w - 50) {
+                this.player.posX <= obs.obstaclePos.x + obs.obstacleSize.w - 90) {
                 alert("¡GAME OVER!, Your ship is gone")
             }
         })
     },
 
     createPlatform() {
-        const platform1 = new Platforms(this.ctx, this.canvasSize, this.canvasSize.w - 80, this.canvasSize.h - 130, 80, 80)
+        const platform1 = new Platforms(this.ctx, this.canvasSize, this.canvasSize.w, this.canvasSize.h - 130, 80, 80)
         if (this.score != 15) {
             this.platforms.push(platform1)
             this.score++
