@@ -34,7 +34,4 @@ class Player {
             this.velY = 1
         }
     }
-    die() {
-        this.posY += 2
-    }
 }

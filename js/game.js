@@ -56,9 +56,15 @@ const game = {
             this.stopGame()
             this.isPlatform()
             this.onPlatform()
-            console.log(this.onPlatform())
             this.win()
-            this.isCollision() && this.gameOver()
+            if (this.isCollision()) {
+                this.gameOver()
+                swal({
+                    title: "GAME OVER",
+                    text: "¡¡Your ship is gone!!",
+                    icon: "warning",
+                })
+            }
             this.isPlayerOut() && this.gameOver()
         }, 1400 / 60)
     },
@@ -112,12 +118,10 @@ const game = {
     },
 
     isCollision() {
-        this.obstacles.forEach(obs => {
-            if (this.player.posX + this.player.width - 180 >= obs.obstaclePos.x &&
+        return this.obstacles.some(obs => {
+            return (this.player.posX + this.player.width - 180 >= obs.obstaclePos.x &&
                 this.player.posY + this.player.height - 60 >= obs.obstaclePos.y &&
-                this.player.posX <= obs.obstaclePos.x + obs.obstacleSize.w - 90) {
-                alert("¡GAME OVER!, Your ship is gone")
-            }
+                this.player.posX <= obs.obstaclePos.x + obs.obstacleSize.w - 90)
         })
     },
 
@@ -149,7 +153,7 @@ const game = {
 
     isPlayerOut() {
         if (this.player.posX < 0 - this.player.width) {
-            alert("¡GAME OVER!Too slow!")
+            swal("¡GAME OVER!Too slow!")
             return true
         } else {
             return false
@@ -198,8 +202,4 @@ const game = {
     gameOver() {
         clearInterval(this.interval)
     }
-
-
-
-
 }
