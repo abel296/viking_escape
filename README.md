@@ -3,7 +3,7 @@ Platform video game in which you need to dodge swords and obstacles to reach the
 
 ## How to play
 * You can play here:
-https://evavirseda.github.io/Platform-Game/
+https://evavirseda.github.io/Platform-Game
 
 * Or run the index.html file with a web browser
 
