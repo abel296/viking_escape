@@ -1,8 +1,11 @@
 # Viking Escape
 Platform video game in which you need to dodge swords and obstacles to reach the ship
 
-## Setup
-* Open the index.html file with a web browser
+## How to play
+* You can play here:
+https://evavirseda.github.io/Platform-Game/
+
+* Or run the index.html file with a web browser
 
 ## Screenshoots
 ![start](https://res.cloudinary.com/abel-av/image/upload/v1618395152/viking_escape/viking_landing_page_nqszqq.png)
@@ -24,5 +27,5 @@ Platform video game in which you need to dodge swords and obstacles to reach the
 
 ## Authory
 This is a project performed by:
-* Eva Virseda (https://www.linkedin.com/in/evavirsedasanz, https://github.com/evavirseda)
-* Abel Andrés (https://www.linkedin.com/in/abel-andres, https://github.com/abel296)
+* Eva Virseda (https://www.linkedin.com/in/evavirsedasanz | https://github.com/evavirseda)
+* Abel Andrés (https://www.linkedin.com/in/abel-andres | https://github.com/abel296)
