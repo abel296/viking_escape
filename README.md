@@ -1,7 +1,7 @@
 # Viking Escape
 Platform video game in which you need to dodge swords and obstacles to reach the ship
 
-## How to play
+## How to run it
 * You can play here:
 https://evavirseda.github.io/Platform-Game
 
