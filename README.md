@@ -27,5 +27,5 @@ https://evavirseda.github.io/Platform-Game
 
 ## Authory
 This is a project performed by:
-* Eva Virseda (https://www.linkedin.com/in/evavirsedasanz | https://github.com/evavirseda)
-* Abel Andrés (https://www.linkedin.com/in/abel-andres | https://github.com/abel296)
+* Eva Virseda (https://www.linkedin.com/in/evavirsedasanz, https://github.com/evavirseda)
+* Abel Andrés (https://www.linkedin.com/in/abel-andres, https://github.com/abel296)
